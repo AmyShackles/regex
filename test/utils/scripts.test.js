@@ -9,7 +9,6 @@ describe("Scripts", () => {
     scriptOptions.forEach((script) => {
       it(`should match the codepoints for ${script}`, () => {
         let regex = new RegExp(`\^\\p{Script=${script}\}\+\$`, "u");
-        console.log(getScripts(script));
         const codepoints = getScriptRanges(getScripts(script));
         let matches = getUnicode(codepoints);
         const actual = regex.test(matches);
